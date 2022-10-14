@@ -1,9 +1,6 @@
-from sqlite3 import apilevel
-from httplib2 import Credentials
 import pandas as pd
 from apiclient.discovery import build
 from google.oauth2 import service_account
-import re
 
 
 class GoogleSpreadsheetAPI:

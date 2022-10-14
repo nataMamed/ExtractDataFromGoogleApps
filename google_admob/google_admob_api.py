@@ -1,20 +1,8 @@
-from asyncore import read
-import csv
-from email import header
-from http import client
-from socket import TCP_NODELAY
-import sys
-import json
 from googleapiclient import discovery
 from googleapiclient.http import build_http
-from httplib2 import Credentials
 from oauth2client import tools
 from oauth2client.file import Storage
 from oauth2client.client import OAuth2WebServerFlow
-import requests
-import pandas as pd
-from spreadsheets import update_spreadsheets, fetch_spreadsheets
-
 
 class AdMobAPI:
     def __init__(self, key_filepath, app_name, client_id, client_secret):
@@ -91,4 +79,5 @@ class AdMobAPI:
         return self.admob.accounts().networkReport().generate(
                 parent='accounts/{}'.format(publisher_id),
                 body=request).execute()
+
 
