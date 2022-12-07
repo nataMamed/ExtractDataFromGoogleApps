@@ -72,12 +72,11 @@ class AdMobAPI:
 
 
     def generate_report(self, publisher_id, report_spec):
-        
-
 
         request = {'reportSpec': report_spec}
-        return self.admob.accounts().networkReport().generate(
+        return self.admob.accounts().mediationReport().generate(
                 parent='accounts/{}'.format(publisher_id),
                 body=request).execute()
 
 
+        
