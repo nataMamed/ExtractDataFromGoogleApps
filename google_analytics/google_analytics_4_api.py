@@ -87,4 +87,4 @@ if __name__=='__main__':
         Metric(name="publisherAdClicks"),
         Metric(name="totalRevenue")
         ]
-    api.fetch_report(property_id="307454856", metrics=metrics, dimensions=dimensions, start_date="2022-12-01", end_date="yesterday")
+    api.fetch_report(property_id="", metrics=metrics, dimensions=dimensions, start_date="2022-12-01", end_date="yesterday")
