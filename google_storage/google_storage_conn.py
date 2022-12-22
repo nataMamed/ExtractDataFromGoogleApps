@@ -128,7 +128,7 @@ class GoogleBucketConnection:
             try:
                 print(f'Downloading {blob_name}...')
                 blob = self.bucket.blob(blob_name)
-                with open(os.path.join(destiny_dir, blob_name), 'wb') as f:
+                with open(os.path.join(destiny_dir, blob_name.split('/')[-1]), 'wb') as f:
                     self.storage_client.download_blob_to_file(blob, f)
             except Exception as e:
                 print(e)
