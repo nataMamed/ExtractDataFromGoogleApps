@@ -128,6 +128,29 @@ class GoogleAnalyticsAPI:
 
         return df_total
 
+    def fetch_all_ga_data_as_json(self, body:dict, scopes:list):
+        counter = 1
+        last_token = ''
+        all_data = []
+        while True:
+            try:
+                print(f'Resquest counter: {counter}')
+                temp_data, next_page_token = self.fetch_google_analytics_data( body, scopes)
+                counter += 1
+                last_token = next_page_token
+            except Exception as err:
+
+                print("Somenthing went wrong fetching the data...: ", err)
+                continue
+            all_data.extend(temp_data)
+            
+            if not next_page_token:
+                break
+            body["reportRequests"][0]["pageToken"] = last_token
+            body["reportRequests"][0]["pageSize"] = "1000"
+
+        return all_data
+
 
 if __name__=='__main__':
     credentials = {}
