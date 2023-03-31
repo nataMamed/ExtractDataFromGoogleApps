@@ -7,7 +7,7 @@ from google.ads.googleads.errors import GoogleAdsException
 
 class GoogleAdsAPI:
 
-    def __init__(self, yaml_credentials_path, customer_id, api_version="v11"):
+    def __init__(self, yaml_credentials_path, customer_id, api_version="v12"):
         self.client = GoogleAdsClient.load_from_storage(path=yaml_credentials_path,version=api_version)
         self.customer_id = customer_id
     
